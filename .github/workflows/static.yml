@@ -22,6 +22,9 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
+  env:
+    MAPBOX_KEY: ${{ secrets.MAPBOX_KEY }}
+    OPEN_WX_MAP_KEY: ${{ secrets.OPEN_WX_MAP_KEY }}
   deploy:
     environment:
       name: github-pages
@@ -34,9 +37,6 @@ jobs:
         uses: actions/configure-pages@v2
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-        env:
-          MAPBOX_KEY: ${{ secrets.MAPBOX_KEY }}
-          OPEN_WX_MAP_KEY: ${{ secrets.OPEN_WX_MAP_KEY }}
         with:
           # Upload entire repository
           path: '.'
