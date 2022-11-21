@@ -22,13 +22,12 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
-  env:
-    MAPBOX_KEY: ${{ secrets.MAPBOX_KEY }}
-    OPEN_WX_MAP_KEY: ${{ secrets.OPEN_WX_MAP_KEY }}
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+      MAPBOX_KEY: ${{ secrets.MAPBOX_KEY }}
+      OPEN_WX_MAP_KEY: ${{ secrets.OPEN_WX_MAP_KEY }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
