@@ -20,7 +20,7 @@
     let timestamp;
 
     function getFileMap() { // hash map for icon filenames
-        let url = `./data/icon-map.json`
+        let url = `./assets/data/icon-map.json`
         $.ajax(url).done(function (data) { // once we have lat lon from zip code get the local area name
             data.forEach((element) => {  // map the icon names to file names
                 fileMap.set(element.code, element.file);
@@ -34,7 +34,7 @@
     }
 
     function getCountryCodes() {// hash map for country codes
-        let url = `./data/country-codes.json`
+        let url = `./assets/data/country-codes.json`
         $.ajax(url).done(function (data) { // once we have lat lon from zip code get the local area name
             data.forEach((element) => {  // map the icon names to file names
                 countries.set(element.code, element.name);

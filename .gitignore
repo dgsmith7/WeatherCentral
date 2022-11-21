@@ -10,3 +10,6 @@
 *.class
 out/*
 /out/
+
+# other
+/assets/js/keys.js
