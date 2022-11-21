@@ -1,6 +1,11 @@
 # Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
+env:
+  MAPBOX_KEY: ${ { secrets.MAPBOX_KEY } },
+  OPEN_WX_MAP_KEY: ${ { secrets.OPEN_WX_MAP_KEY } }
+  MY_NEW_ENV_VAR: itWorks
+
 on:
   # Runs on pushes targeting the default branch
   push:
@@ -26,11 +31,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    env:
-      {
-        MAPBOX_KEY: ${ { secrets.MAPBOX_KEY } },
-        OPEN_WX_MAP_KEY: ${ { secrets.OPEN_WX_MAP_KEY } }
-      }
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,3 +45,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+      - run: echo "$MY_NEW_ENV_VAR"
