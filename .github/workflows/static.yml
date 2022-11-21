@@ -33,7 +33,7 @@ jobs:
       MY_NEW_ENV_VAR: itWorks
     steps:
       - run: echo "hello, world!"
-      - run: MAPBOX_KEY
+      - run: echo MAPBOX_KEY
       - run: echo "$MY_NEW_ENV_VAR"
       - name: Checkout
         uses: actions/checkout@v3
