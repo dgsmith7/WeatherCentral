@@ -33,6 +33,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - run: echo "$GITHUB_CONTEXT"
       - run: echo "$MY_NEW_ENV_VAR"
       - name: Checkout
         uses: actions/checkout@v3
