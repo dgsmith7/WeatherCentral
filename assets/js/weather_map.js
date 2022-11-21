@@ -9,7 +9,6 @@
     let fileMap = new Map();
     let timeShift;
     let fiveDay;
-//    let mapboxgl;
     mapboxgl.accessToken = MAPBOX_KEY;
     let map;
     let geocoder;
