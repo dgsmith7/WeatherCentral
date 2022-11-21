@@ -7,12 +7,8 @@ on:
     branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
-#  workflow_dispatch:
+  workflow_dispatch:
 
-env:
-  MAPBOX_KEY: ${{ secrets.MAPBOX_KEY }}
-  OPEN_WX_MAP_KEY: ${{ secrets.OPEN_WX_MAP_KEY }}
-  
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -36,6 +32,9 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v2
+        env:
+          MAPBOX_KEY: ${{ secrets.MAPBOX_KEY }}
+          OPEN_WX_MAP_KEY: ${{ secrets.OPEN_WX_MAP_KEY }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
