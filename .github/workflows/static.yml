@@ -33,6 +33,10 @@ jobs:
       MY_NEW_ENV_VAR: itWorks
     steps:
       - run: echo "hello, world!"
+        env:
+          MAPBOX_KEY: ${{ secrets.MAPBOX_KEY }}
+          OPEN_WX_MAP_KEY: ${{ secrets.OPEN_WX_MAP_KEY }}
+          MY_NEW_ENV_VAR: itWorks
       - run: echo "$MY_NEW_ENV_VAR"
       - name: Checkout
         uses: actions/checkout@v3
