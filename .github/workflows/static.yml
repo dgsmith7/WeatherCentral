@@ -2,8 +2,8 @@
 name: Deploy static content to Pages
 
 env:
-  MAPBOX_KEY: ${ { secrets.MAPBOX_KEY } },
-  OPEN_WX_MAP_KEY: ${ { secrets.OPEN_WX_MAP_KEY } }
+  MAPBOX_KEY: ${{ secrets.MAPBOX_KEY }}
+  OPEN_WX_MAP_KEY: ${{ secrets.OPEN_WX_MAP_KEY }}
   MY_NEW_ENV_VAR: itWorks
 
 on:
