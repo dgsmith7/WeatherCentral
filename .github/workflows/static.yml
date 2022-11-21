@@ -6,6 +6,11 @@ on:
   push:
     branches: ["main"]
 
+  env:
+    MAPBOX_KEY: ${{ secrets.MAPBOX_KEY }}
+    OPEN_WX_MAP_KEY: ${{ secrets.OPEN_WX_MAP_KEY }}
+    MY_NEW_ENV_VAR: itWorks
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -27,16 +32,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    env:
-      MAPBOX_KEY: ${{ secrets.MAPBOX_KEY }}
-      OPEN_WX_MAP_KEY: ${{ secrets.OPEN_WX_MAP_KEY }}
-      MY_NEW_ENV_VAR: itWorks
     steps:
       - run: echo "hello, world!"
-        env:
-          MAPBOX_KEY: ${{ secrets.MAPBOX_KEY }}
-          OPEN_WX_MAP_KEY: ${{ secrets.OPEN_WX_MAP_KEY }}
-          MY_NEW_ENV_VAR: itWorks
       - run: echo "$MY_NEW_ENV_VAR"
       - name: Checkout
         uses: actions/checkout@v3
