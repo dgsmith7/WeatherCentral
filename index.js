@@ -1,11 +1,16 @@
-let express = require('express');
-let app = express();
+"use strict";
 
-app.use(express.static('assets'));
+(function () {
+    let express = require('express');
 
-app.get('/', function (req, res) {
-res.send('Weather Central Web Application is UP');
-});
-app.listen(8081, function () {
-    console.log('Weather Central Web Application running on port 8081!');
-});
+    let app = express();
+
+    app.use(express.static('assets'));
+
+    app.get('/', function (req, res) {
+        res.send('Weather Central Web Application is UP');
+    });
+    app.listen(80, function () {
+        console.log('Weather Central Web Application running on port 8081!');
+    });
+}());

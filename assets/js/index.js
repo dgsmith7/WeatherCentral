@@ -334,6 +334,6 @@
         return windObj;
     }
 
-    console.log(MY_NEW_ENV_VAR);
+    //console.log(MY_NEW_ENV_VAR);
     getFileMap();
 }());
