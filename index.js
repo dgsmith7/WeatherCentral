@@ -6,10 +6,10 @@
 
     let app = express();
 
-    app.use(express.static('assets/js'));
+//    app.use(express.static('assets/js'));
 
     app.get('/', function (req, res) {
-        res.sendFile(path.join('/assets/js', '/index.html'));
+        res.sendFile(path.join(__dirname,'/weather_map.html'));
 //        res.send('Weather Central Web Application is UP');
     });
     app.listen(80, function () {
