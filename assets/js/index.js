@@ -9,7 +9,9 @@
     let fileMap = new Map();
     let timeShift;
     let fiveDay;
-    mapboxgl.accessToken = MAPBOX_KEY;
+    const MAPBOX_KEY = "d";
+    const OPEN_WX_MAP_KEY = "e";
+    mapboxgl.accessToken = `${MAPBOX_KEY}`;
     let map;
     let geocoder;
     let gcFlag = false;
