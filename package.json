@@ -11,7 +11,7 @@
     "url": "git+https://github.com/dgsmith7/WeatherCentral.git"
   },
   "author": "David Gail Smith",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dgsmith7/WeatherCentral/issues"
   },

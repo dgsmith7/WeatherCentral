@@ -12,6 +12,4 @@ out/*
 /out/
 
 # other
-/assets/js/keys.js
-
 /node_modules/
