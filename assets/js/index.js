@@ -9,9 +9,7 @@
     let fileMap = new Map();
     let timeShift;
     let fiveDay;
-    const MAPBOX_KEY = "d";
-    const OPEN_WX_MAP_KEY = "e";
-    mapboxgl.accessToken = `${MAPBOX_KEY}`;
+    mapboxgl.accessToken = process.env.MAPBOX_KEY;
     let map;
     let geocoder;
     let gcFlag = false;
@@ -50,7 +48,7 @@
     }
 
     function lookUpLatLongByZip(zip) {
-        let url = `https://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${OPEN_WX_MAP_KEY}`
+        let url = `https://api.openweathermap.org/geo/1.0/zip?zip=${zip}&appid=${process.env.OPEN_WX_MAP_KEY}`
         $.get(url).done(function (data) {// once we have lat lon from zip code get the local wx
             location = {"lat": data.lat, "lon": data.lon};  // set the location for the api call
             getLocalWxData();  // do the api call from the lat long
@@ -62,7 +60,7 @@
     }
 
     function getLocalWxData() {  // use ajax to get data from api
-        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}&units=imperial&appid=${OPEN_WX_MAP_KEY}`
+        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}&units=imperial&appid=${process.env.OPEN_WX_MAP_KEY}`
         $.get(url).done(function (data) {// once we have lat lon from zip code get the local area name
             wx = data;  // assign file contents to global variable
             lookUpLocationNameByLatLon(location.lat, location.lon);  // now get local name
@@ -74,7 +72,7 @@
     }
 
     function lookUpLocationNameByLatLon(lat, lon) {
-        let url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${OPEN_WX_MAP_KEY}`
+        let url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${process.env.OPEN_WX_MAP_KEY}`
         $.get(url).done(function (data) { // now that we have lat lon, local wx, and local name from zip, update page
             locData = data;
             locName = data[0].name;
@@ -93,7 +91,7 @@
     }
 
     function getFiveDayData() {  // use ajax to get restaurant dat from file
-        let url = `https://api.openweathermap.org/data/2.5/forecast?lat=${location.lat}&lon=${location.lon}&units=imperial&appid=${OPEN_WX_MAP_KEY}`
+        let url = `https://api.openweathermap.org/data/2.5/forecast?lat=${location.lat}&lon=${location.lon}&units=imperial&appid=${process.env.OPEN_WX_MAP_KEY}`
         $.get(url).done(function (data) {// once we have lat lon from zip code get the local area name
             fiveDay = data;  // assign file contents to global variable
             populateDisplay(); // now we have the data, fill in the page with the info
