@@ -22,6 +22,19 @@ import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-d
     let countries = new Map();
     let timestamp;
 
+    // from geocoder
+    function geocode(search, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+            .then(function (res) {
+                return res.json();
+                // to get all the data from the request, comment out the following three lines...
+            }).then(function (data) {
+                return data.features[0].center;
+            });
+    }
+
     function getFileMap() { // hash map for icon filenames
         let url = `./assets/data/icon-map.json`
         $.ajax(url).done(function (data) { // once we have lat lon from zip code get the local area name
