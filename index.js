@@ -9,7 +9,7 @@
 //    app.use(express.static('assets/js'));
 
     app.get('/', function (req, res) {
-        res.sendFile('weather_map.html');
+        res.sendFile('/weather_map.html');
 //        res.send('Weather Central Web Application is UP');
     });
     app.listen(8080, function () {
