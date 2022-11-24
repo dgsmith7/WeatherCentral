@@ -3,6 +3,7 @@
 
 (function () {
     require('dotenv').config();
+    console.log("From index - " + process.env.MY_NEW_ENV_VAR)
     let express = require('express');
     let path = require('path');
 

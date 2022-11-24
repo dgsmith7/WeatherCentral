@@ -1,11 +1,6 @@
 "use strict";
 
-// import * as dotenv from 'dotenv';
-// dotenv.config();
-
 (function () {
-//    let dotenv = require('dotenv').config();
- //   require('dotenv').config();
     let wx;
     let newZipCode = "75238";
     let location = "";
