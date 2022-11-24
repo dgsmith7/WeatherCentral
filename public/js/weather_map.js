@@ -1,9 +1,11 @@
 "use strict";
 
-import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+// import * as dotenv from 'dotenv';
+// dotenv.config();
 
 (function () {
-    dotenv.config();
+//    let dotenv = require('dotenv').config();
+ //   require('dotenv').config();
     let wx;
     let newZipCode = "75238";
     let location = "";
@@ -353,3 +355,4 @@ import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-d
     console.log("here - " + process.env.MY_NEW_ENV_VAR);
     getFileMap();
 }());
+
